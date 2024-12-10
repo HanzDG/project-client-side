@@ -54,7 +54,13 @@ const CampusView = (props) => {
               <button 
                 style={{backgroundColor: 'brown', padding: '7px 15px', 
                 border: 'none', fontSize: '12px', color: 'white'}}
-                onClick={() => unenroll(student.id)}>
+                onClick={() => {
+                  if (unenroll) {
+                    unenroll(student.id);
+                  } else {
+                    console.error('unenroll is not defined');
+                  }
+                }}>
                 Unenroll
               </button>
             </div>

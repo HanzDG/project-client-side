@@ -141,3 +141,20 @@ export const fetchStudentThunk = id => async dispatch => {  // The THUNK
     console.error(err);
   }
 };
+
+export const unenrollThunk = (studentId, campusId) => async (dispatch) => {
+  try {
+    // Unenroll the student in the database (set campusId to null)
+    await axios.put(`/api/students/${studentId}`, { campusId: null });
+
+    // Fetch the updated campus data
+    const response = await axios.get(`/api/campuses/${campusId}`);
+    const updatedCampus = response.data;
+
+    // Dispatch the updated campus data to Redux
+    dispatch({ type: 'FETCH_CAMPUS', payload: updatedCampus });
+  } catch (error) {
+    console.error('Error unenrolling student:', error);
+  }
+};
+

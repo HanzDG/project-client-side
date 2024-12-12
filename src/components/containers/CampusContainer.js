@@ -47,7 +47,7 @@ const mapDispatch = (dispatch) => {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
     editCampus: (campus) => dispatch(editCampusThunk(campus)), // Add editCampusThunk
     deleteCampusThunk: (id) => dispatch(deleteCampusThunk(id)),
-    unenrollThunk: (studentId) => dispatch(unenrollThunk(studentId)), // Add unenrollThunk
+    unenrollThunk: (studentId, id) => dispatch(unenrollThunk(studentId, id)), // Add unenrollThunk
   };
 };
 
